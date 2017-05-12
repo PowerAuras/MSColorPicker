@@ -178,6 +178,8 @@ static CGFloat const MSColorComponentLabelWidth = 60.0f;
 
     [self setValue:0.0f];
     [_slider addTarget:self action:@selector(ms_didChangeSliderValue:) forControlEvents:UIControlEventValueChanged];
+    [_slider addTarget:self action:@selector(ms_endChangeSliderValue:) forControlEvents:UIControlEventTouchUpInside];
+    
     [_textField setDelegate:self];
 
     [self ms_installConstraints];
@@ -187,6 +189,10 @@ static CGFloat const MSColorComponentLabelWidth = 60.0f;
 {
     [self setValue:sender.value];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
+}
+- (void)ms_endChangeSliderValue:(MSSliderView *)sender
+{
+    [self sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)ms_installConstraints

@@ -71,6 +71,7 @@ static const CGFloat MSThumbViewEdgeInset = -10.0f;
         _thumbView = [[MSThumbView alloc] init];
         _thumbView.hitTestEdgeInsets = UIEdgeInsetsMake(MSThumbViewEdgeInset, MSThumbViewEdgeInset, MSThumbViewEdgeInset, MSThumbViewEdgeInset);
         [_thumbView.gestureRecognizer addTarget:self action:@selector(ms_didPanThumbView:)];
+
         [self addSubview:_thumbView];
 
         __attribute__((objc_precise_lifetime)) id color = (__bridge id)[UIColor blueColor].CGColor;
@@ -112,9 +113,11 @@ static const CGFloat MSThumbViewEdgeInset = -10.0f;
 }
 
 #pragma mark - UIControl touch tracking events
-
 - (void)ms_didPanThumbView:(UIPanGestureRecognizer *)gestureRecognizer
 {
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        [self sendActionsForControlEvents:UIControlEventTouchUpInside];
+    }
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan && gestureRecognizer.state != UIGestureRecognizerStateChanged) {
         return;
     }

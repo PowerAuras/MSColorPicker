@@ -61,5 +61,7 @@
  *  @param color The new color value.
  */
 - (void)colorView:(id<MSColorView>)colorView didChangeColor:(UIColor *)color;
+//只是在touchUpInside后做下通知 不做任何reload处理
+- (void)colorView:(id<MSColorView>)colorView endChangeColor:(UIColor *)color;
 
 @end

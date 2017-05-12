@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param color The new color value.
  */
 - (void)colorViewController:(MSColorSelectionViewController *)colorViewCntroller didChangeColor:(UIColor *)color;
+- (void)colorViewController:(MSColorSelectionViewController *)colorViewCntroller endChangeColor:(UIColor *)color;
 
 @end
 

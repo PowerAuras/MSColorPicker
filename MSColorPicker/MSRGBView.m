@@ -112,6 +112,8 @@ static NSUInteger const MSRGBColorComponentsSize = 3;
         UIControl *colorComponentView = [self ms_colorComponentViewWithTitle:titles[i] tag:i maxValue:[maxValues[i] floatValue]];
         [self addSubview:colorComponentView];
         [colorComponentView addTarget:self action:@selector(ms_colorComponentDidChangeValue:) forControlEvents:UIControlEventValueChanged];
+        [colorComponentView addTarget:self action:@selector(ms_colorComponentEndChangeValue:) forControlEvents:UIControlEventTouchUpInside];
+
         [tmp addObject:colorComponentView];
     }
 
@@ -124,6 +126,10 @@ static NSUInteger const MSRGBColorComponentsSize = 3;
     [self ms_setColorComponentValue:sender.value / sender.maximumValue atIndex:sender.tag];
     [self.delegate colorView:self didChangeColor:self.color];
     [self reloadData];
+}
+- (IBAction)ms_colorComponentEndChangeValue:(MSColorComponentView *)sender
+{
+    [self.delegate colorView:self endChangeColor:self.color];
 }
 
 - (void)ms_setColorComponentValue:(CGFloat)value atIndex:(NSUInteger)index

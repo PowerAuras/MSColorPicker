@@ -75,6 +75,10 @@
 
 - (void)colorViewController:(MSColorSelectionViewController *)colorViewCntroller didChangeColor:(UIColor *)color
 {
+//    self.view.backgroundColor = color;
+}
+- (void)colorViewController:(MSColorSelectionViewController *)colorViewCntroller endChangeColor:(UIColor *)color
+{
     self.view.backgroundColor = color;
 }
 

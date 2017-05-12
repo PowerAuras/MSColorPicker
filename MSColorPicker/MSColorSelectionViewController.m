@@ -88,5 +88,9 @@
 {
     [self.delegate colorViewController:self didChangeColor:color];
 }
+- (void)colorView:(id<MSColorView>)colorView endChangeColor:(UIColor *)color
+{
+    [self.delegate colorViewController:self endChangeColor:color];
+}
 
 @end

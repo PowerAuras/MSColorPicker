@@ -108,6 +108,11 @@
     self.color = color;
     [self.delegate colorView:self didChangeColor:self.color];
 }
+- (void)colorView:(id<MSColorView>)colorView endChangeColor:(UIColor *)color
+{
+    self.color = color;
+    [self.delegate colorView:self endChangeColor:self.color];
+}
 
 #pragma mark - Private
 
