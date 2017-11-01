@@ -33,9 +33,9 @@
 extern CGFloat const MSAlphaComponentMaxValue;
 extern CGFloat const MSHSBColorComponentMaxValue;
 
-static CGFloat const MSColorSampleViewHeight = 30.0f;
-static CGFloat const MSViewMargin = 20.0f;
-static CGFloat const MSColorWheelDimension = 200.0f;
+static CGFloat const MSColorSampleViewHeight = 15.;
+static CGFloat const MSViewMargin = 10.0f;
+static CGFloat const MSColorWheelDimension = 150.0f;
 
 @interface MSHSBView () <UITextFieldDelegate>
 {
@@ -155,7 +155,7 @@ static CGFloat const MSColorWheelDimension = 200.0f;
     NSMutableArray *layoutConstraints = [NSMutableArray array];
 
     [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_colorSample]-margin-|" options:0 metrics:metrics views:views]];
-    [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_colorWheel(>=color_wheel_dimension)]-margin-|" options:0 metrics:metrics views:views]];
+    [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(20)-[_colorWheel(==color_wheel_dimension)]-(20)-|" options:0 metrics:metrics views:views]];
     [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_brightnessView]-margin-|" options:0 metrics:metrics views:views]];
     [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-margin-[_colorSample(height)]-margin-[_colorWheel]-margin-[_brightnessView]-(>=margin@250)-|" options:0 metrics:metrics views:views]];
     [layoutConstraints addObject:[NSLayoutConstraint

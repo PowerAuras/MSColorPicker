@@ -48,10 +48,10 @@
 
     UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"RGB", ), NSLocalizedString(@"HSB", )]];
     [segmentControl addTarget:self action:@selector(segmentControlDidChangeValue:) forControlEvents:UIControlEventValueChanged];
-    segmentControl.selectedSegmentIndex = 0;
+    segmentControl.selectedSegmentIndex = 1;
     self.navigationItem.titleView = segmentControl;
 
-    [self.colorSelectionView setSelectedIndex:0 animated:NO];
+    [self.colorSelectionView setSelectedIndex:1 animated:NO];
     self.colorSelectionView.delegate = self;
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
