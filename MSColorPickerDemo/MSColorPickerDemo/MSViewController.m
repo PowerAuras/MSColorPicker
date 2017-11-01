@@ -41,7 +41,7 @@
         MSColorSelectionViewController *colorSelectionController = (MSColorSelectionViewController *)destNav.visibleViewController;
         colorSelectionController.delegate = self;
         colorSelectionController.color = self.view.backgroundColor;
-
+        colorSelectionController.defaultSegIndex = 1;
         if (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
             UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", ) style:UIBarButtonItemStyleDone target:self action:@selector(ms_dismissViewController:)];
             colorSelectionController.navigationItem.rightBarButtonItem = doneBtn;
@@ -52,6 +52,7 @@
 - (IBAction)onButtonTap:(UIButton *)button
 {
     MSColorSelectionViewController *colorSelectionController = [[MSColorSelectionViewController alloc] init];
+    colorSelectionController.defaultSegIndex = 1;
     UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:colorSelectionController];
 
     navCtrl.modalPresentationStyle = UIModalPresentationPopover;

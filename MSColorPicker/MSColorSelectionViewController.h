@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The current color value.
  */
 @property (nonatomic, strong) UIColor *color;
-
+@property (nonatomic, assign) NSInteger defaultSegIndex;
 @end
 
 NS_ASSUME_NONNULL_END
