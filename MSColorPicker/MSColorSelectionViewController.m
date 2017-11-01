@@ -59,6 +59,7 @@
 - (IBAction)segmentControlDidChangeValue:(UISegmentedControl *)segmentedControl
 {
     [self.colorSelectionView setSelectedIndex:segmentedControl.selectedSegmentIndex animated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"defaultSeg" object:[NSNumber numberWithInteger:segmentedControl.selectedSegmentIndex]];
 }
 
 - (void)setColor:(UIColor *)color
